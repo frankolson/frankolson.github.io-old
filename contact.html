@@ -7,7 +7,7 @@ header-img: "img/contact-bg.jpg"
 
 <p>Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
 
-<form method="POST" action="http://formspree.io/{{ email }}">
+<form method="POST" action="//formspree.io/{{ site.email }}">
   <div class="row control-group">
     <div class="form-group col-xs-12 floating-label-form-group controls">
       <label>Name</label>
@@ -31,6 +31,9 @@ header-img: "img/contact-bg.jpg"
       <p class="help-block text-danger"></p>
     </div>
   </div>
+
+  <input type="text" name="_gotcha" style="display:none" />
+  <input type="hidden" name="_next" value="{{ site.url }}/thanks/" />
 
   <div class="row">
     <div class="form-group col-xs-12">
