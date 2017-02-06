@@ -4,7 +4,7 @@ header-img: img/home-bg.jpg
 email: will.olson11@gmail.com
 copyright_name: ThinkOlson.com
 description: "A cool place for my thoughts and projects"
-baseurl: "/thinkolson"
+baseurl: ""
 url: "https://frankolson.github.io"
 twitter_username: thinkolson
 github_username:  frankolson
@@ -20,6 +20,7 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 paginate: 5
+paginate_path: "/blog/page:num/"
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
 gems: [jekyll-paginate, jekyll-feed]
