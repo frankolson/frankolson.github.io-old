@@ -138,13 +138,6 @@ ActiveRecord::Migration.maintain_test_schema!
 
 Capybara.app_host = 'http://lvh.me:3000'
 
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
-end
-
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Rails.application.routes.url_helpers
