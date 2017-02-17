@@ -9,6 +9,15 @@ header-img: "img/post-bg-01.jpg"
 ## Intro
 This is the first article of my series on how to build a Software as a Service (SaaS) web app using Ruby on Rails. In this series we are going to be setting up a multi-tenant web app to track employee satisfaction at individual stores in a large coffee franchise. Employees will be able to sign in and give reviews and store managers will be able to track the anonymized satisfaction of their employees.
 
+Their are a few assumptions I am going to make about you, the reader / up-and-coming developer, and your setup.
+
+1. You are currently using:
+  - Rails version 5+
+  - Ruby version 2.3.3+
+  - A shell based terminal (I am using Linux Bash)
+2. You are familiar with using RSpec but not necessarily and expert.
+3. You are familiar with Omniauthable Devise but not necessarily an expert.
+
 In this first post we are going to focus on setting up our rails app with a great rspec testing suite as well as Twitter bootstrap styling. If you want to look at the source code for this post [look here!](https://github.com/frankolson/CoffeeTracking/tree/part_1)
 
 ---

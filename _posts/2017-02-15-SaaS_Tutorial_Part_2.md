@@ -7,18 +7,26 @@ author:     "Frank Olson"
 header-img: "img/post-bg-02.jpg"
 ---
 ## Intro
+With this second post in the series we are going to create the Accounts model, controller, views, routes, and spec tests. Throughout this series I am going to be doing my best to follow the practices of Test Driven Development (TDD). This is a great way to keep your code reliable and if you are interested in learning more checkout [this great tutorial series](https://everydayrails.com/2012/03/12/testing-series-intro.html).
+
+Again, if you want to look at the source code for this post [look here!](https://github.com/frankolson/CoffeeTracking/tree/part_2)
 
 ---
 
 ## Outline
+1. [Generating the Model](#section-1)
+2. [Creating Our First Tests](#section-2)
+3. [Implementing the Model](#section-3)
+4. [Adding Specs, Controller, and Routes](#section-4)
+5. [Finishing the Specs and Adding Our First Views](#section-5)
 
 ---
 
 ## The Good Stuff
 
-- create model with string attribute `subdomain`
-- create your data base if you have not already, then migrate said database.
-- start guard, we about to do some testing!
+### Generating the Model {#section-1}
+
+First thing we are going to do is use the rails generators to create the Account model. With these next terminal commands we are going to generate the files necessary for the Account model, create and migrate our database, and finally start Guard to continuously keep on eye on our spec tests.
 
 ~~~
 rails g model Account subdomain owner_id:integer
@@ -26,8 +34,9 @@ rails db:create db:migrate
 bundle exec guard
 ~~~
 
-- when we ran the rails generator to create our Account model, rspec should have created an account factory as well as a model spec.
-- Let's start with the Factory. This will help us build testable Account ruby objects.
+### Creating Our First Tests {#section-2}
+
+When we ran the rails generator to create our Account model, RSpec should have created an account factory as well as a model spec. Let's update that account factory. This will help us build testable Account ruby objects.
 
 ~~~ruby
 # spec/factories/accounts.rb
@@ -39,16 +48,28 @@ FactoryGirl.define do
 end
 ~~~
 
-- In the following file, we use the FactoryGirl `sequence` command to make sure that we don't create and accounts with the same subdomain. We will test for this soon too.
+In the following file, we use the FactoryGirl `sequence` command to make sure that we don't create any accounts with the same subdomain. We will test for this soon too. I should mention, in the first post of this series, I forgot to add the Shoulda-Matchers configuration to our rails helper. So right under `Capybara.app_host = 'http://example.com'` in the the `rails_helper.rb` file add the following.
 
-- Next let's create some tests to make sure we build out or model correctly.
-- Here are some testable features we know about our Account model.
-  1. all accounts have to have a unique lowercase based subdomain
-  2. all accounts need to eventually have an owner
-    - this gets tricky though because we don't have users yet, so we will just make a pending test for this one and come back to it.
-  3. subdomains should not have special characters
-  4. there should be restricted subdomains like `www`
-- with these in mind we are going to create some tests that our model has to pass
+~~~ruby
+# spec/rails_helper.rb
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+~~~
+
+Next let's create some tests to make sure we build out or model correctly. Here are some testable features we know about our Account model.
+
+  1. All accounts have to have a unique lowercase based subdomain.
+  2. All accounts need to eventually have an owner.
+     - This gets tricky though because we don't have users yet, so we will just make a pending test for this one and come back to it.
+  3. Subdomains should not have special characters.
+  4. There should be restricted subdomains like `www`.
+
+With these in mind we are going to create some tests that our model has to pass
 
 ~~~ruby
 # spec/models/account_spec.rb
@@ -80,8 +101,9 @@ RSpec.describe Account, type: :model do
 end
 ~~~
 
-- If you have been keeping an eye on Guard you will notice that almost all of the tests fail.
-- We are going to fix this right now. Let's jump into the previously generated Account mdel file and add in our validations.
+### Implementing the Model {section-3}
+
+If you have been keeping an eye on Guard you will notice that almost all of the tests fail. We are going to fix this right now. Let's jump into the previously generated Account model file and add in our validations.
 
 ~~~ruby
 class Account < ApplicationRecord
@@ -102,17 +124,16 @@ class Account < ApplicationRecord
 end
 ~~~
 
-- Now all of our tests pass!
-- Time for a save point.
+Now all of our tests pass! Time to commit our changes.
 
 ~~~
 git add .
 git commit -m "create account model and associated tests"
 ~~~
 
-- let's setup our controller specs now.
-- for the accounts we are going to need specs for our new and create actions to start
-- lets create the controllers spec file
+### Adding Specs, Controller, and Routes {section-4}
+
+Let's setup our controller specs now. For the accounts we are going to need specs for our `:new` and `:create` actions to start.
 
 ~~~ruby
 # spec/controllers/account_controller_spec.rb
@@ -139,7 +160,7 @@ describe AccountsController, type: :controller do
 end
 ~~~
 
-- looking at guard it should be telling us that there is no AccountsController so lets create one ...
+Looking at Guard it should be telling us that there is no `AccountsController` so lets create one ...
 
 ~~~ruby
 # app/controllers/accounts_controller.rb
@@ -170,16 +191,16 @@ Rails.application.routes.draw do
 end
 ~~~
 
-- Sweet all of our tests are passing. Let's go ahead and commit our work again.
+Sweet all of our tests are passing. Let's go ahead and commit our work again.
 
 ~~~
 git add .
 git commit -m "add initial account specs, controller, and routes"
 ~~~
 
-- Now let's go complete those spec tests
-- And we are going to start with the new action.
-- Side note: in the last post I forgot to add a gem to the dev/test block in the Gemfile:
+### Finishing the Specs and Adding Our First Views {#section-5}
+
+Now let's go complete those spec tests, and we are going to start with the `:new` action. _Side note: in the last post I forgot to add a gem to the development and test block of the Gemfile, so we're are going to fix that here as well._
 
 ~~~ruby
 # Gemfile
@@ -205,8 +226,7 @@ it "renders the :new template" do
 end
 ~~~
 
-- Guard will tell us that that we don't have the right template for this action, so let's create one real quick as well as fixing up the layout template and adding some css to work with bootstrap.
-- We are also going to need to create a bootstrap flash messages helper to make our lives easier.
+Guard will tell us that that we don't have the right template for this action, so let's create one real quick, as well as fixing up the layout template and adding some CSS to work with bootstrap. We are also going to need to create a bootstrap flash messages helper to make our lives easier.
 
 ~~~sass
 /* # app/assets/stylesheets/application.scss */
@@ -245,8 +265,8 @@ end
     <title>CoffeeTracking</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application'%>
+    <%= javascript_include_tag 'application'%>
   </head>
 
   <body>
@@ -280,15 +300,17 @@ end
 </div>
 ~~~
 
-- Guard is now telling us that we need to assign an new instance of Account in our controller action
+Guard is now telling us that we need to assign an new instance of Account in our controller action.
 
 ~~~ruby
+# app/controllers/accounts_controller.rb
+
 def new
   @account = Account.new
 end
 ~~~
 
-- Now that those tests are passing lets move on to the create controller specs
+Now that those tests are passing lets move on to the create controller specs.
 
 ~~~ruby
 # spec/controllers/account_controller_spec.rb
@@ -322,8 +344,7 @@ describe 'POST #create' do
 end
 ~~~
 
-- We have to do a few things to fix these tests.
-- First, add the create action functionality
+We have to do a few things to fix these failing tests. First, add the create action functionality.
 
 ~~~ruby
 # app/controllers/accounts_controller.rb
@@ -331,14 +352,14 @@ end
 def create
   @account = Account.new(account_params)
   if @account.save
-    redirect_to root_path
+    redirect_to root_path, notice: "Your account was successfully created"
   else
     render :new
   end
 end
 ~~~
 
-- Second, we have create a welcome controller, its spec test, and the index view to act as a landing page for our app.
+Second, we have to create a welcome controller, its spec test, and the index view to act as a landing page for our app.
 
 ~~~ruby
 # spec/controllers/welcome_controller_spec.rb
@@ -377,7 +398,7 @@ end
 </div>
 ~~~
 
-- Finally, we need to fix the routes, adding a root path.
+Finally, we need to fix the routes by adding a root path.
 
 ~~~ruby
 # config/routes.rb
@@ -385,7 +406,7 @@ end
 root 'welcome#index'
 ~~~
 
-- let's take a look at our new pages
+Let's take a look at our new pages!
 
 #### Landing page
 ![welcome index]({{ site.baseurl }}/img/saas_tutorial/welcome_index.png)
@@ -393,7 +414,7 @@ root 'welcome#index'
 #### New Account Page
 ![account new]({{ site.baseurl }}/img/saas_tutorial/account_new.png)
 
-- Before we do anything else, let's commit our work.
+Finally we shall finish this post by committing our work.
 
 ~~~
 git add .
