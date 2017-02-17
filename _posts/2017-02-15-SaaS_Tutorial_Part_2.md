@@ -179,6 +179,18 @@ git commit -m "add initial account specs, controller, and routes"
 
 - Now let's go complete those spec tests
 - And we are going to start with the new action.
+- Side note: in the last post I forgot to add a gem to the dev/test block in the Gemfile:
+
+~~~ruby
+# Gemfile
+group :development, :test do
+  gem 'rails-controller-testing'
+end
+~~~
+
+~~~
+bundle install
+~~~
 
 ~~~ruby
 # spec/controllers/account_controller_spec.rb
@@ -187,10 +199,22 @@ it "assigns a new Account to @account" do
   get :new
   expect(assigns(:account)).to be_a_new(Account)
 end
+it "renders the :new template" do
+  get :new
+  expect(response).to render_template :new
+end
 ~~~
 
-- Guard will tell us that that we don't have the right template for this action, so let's create one real quick as well as fixing up the layout template to work with bootstrap.
+- Guard will tell us that that we don't have the right template for this action, so let's create one real quick as well as fixing up the layout template and adding some css to work with bootstrap.
 - We are also going to need to create a bootstrap flash messages helper to make our lives easier.
+
+~~~sass
+/* # app/assets/stylesheets/application.scss */
+
+body {
+  padding-top: 60px;
+}
+~~~
 
 ~~~ruby
 # app/helpers/application_helper.rb
@@ -254,4 +278,124 @@ end
     <%= f.button :submit, class:"btn-primary" %>
   <% end %>
 </div>
+~~~
+
+- Guard is now telling us that we need to assign an new instance of Account in our controller action
+
+~~~ruby
+def new
+  @account = Account.new
+end
+~~~
+
+- Now that those tests are passing lets move on to the create controller specs
+
+~~~ruby
+# spec/controllers/account_controller_spec.rb
+
+describe 'POST #create' do
+  context "with valid attributes" do
+    it "saves the new account in the database" do
+      expect{
+        post :create, params: { account: attributes_for(:account) }
+      }.to change(Account,:count).by(1)
+    end
+
+    it "redirects to the root page" do
+      post :create, params: { account: attributes_for(:account) }
+      expect(response).to redirect_to(root_path)
+    end
+  end
+
+  context "with invalid attributes" do
+    it "does not save the new account" do
+      expect{
+        post :create, params: { account: { subdomain: '' } }
+      }.to_not change(Account,:count)
+    end
+
+    it "re-renders the new method" do
+      post :create, params: { account: { subdomain: '' } }
+      expect(response).to render_template(:new)
+    end
+  end
+end
+~~~
+
+- We have to do a few things to fix these tests.
+- First, add the create action functionality
+
+~~~ruby
+# app/controllers/accounts_controller.rb
+
+def create
+  @account = Account.new(account_params)
+  if @account.save
+    redirect_to root_path
+  else
+    render :new
+  end
+end
+~~~
+
+- Second, we have create a welcome controller, its spec test, and the index view to act as a landing page for our app.
+
+~~~ruby
+# spec/controllers/welcome_controller_spec.rb
+
+require 'rails_helper'
+
+describe WelcomeController, type: :controller do
+  describe 'GET #index' do
+    it "renders the :index template" do
+      get :index
+      expect(response).to render_template(:index)
+    end
+  end
+end
+~~~
+
+~~~ruby
+# app/controllers/welcome_controller.rb
+
+class WelcomeController < ApplicationController
+
+  def index
+  end
+
+end
+~~~
+
+~~~erb
+<!-- # app/views/welcome/index.html.erb -->
+
+<div class="col-md-10 col-lg-6 offset-md-1 offset-lg-3 jumbotron">
+  <div class="text-center">
+    <h2>Welcome Coffee Tracker</h2>
+    <%= link_to "Create an account", new_account_path, class: 'btn btn-lg btn-primary' %>
+  </div>
+</div>
+~~~
+
+- Finally, we need to fix the routes, adding a root path.
+
+~~~ruby
+# config/routes.rb
+
+root 'welcome#index'
+~~~
+
+- let's take a look at our new pages
+
+#### Landing page
+![welcome index]({{ site.baseurl }}/img/saas_tutorial/welcome_index.png)
+
+#### New Account Page
+![account new]({{ site.baseurl }}/img/saas_tutorial/account_new.png)
+
+- Before we do anything else, let's commit our work.
+
+~~~
+git add .
+git commit -m "add accounts and welcome controller and associated specs/routes"
 ~~~
