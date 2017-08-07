@@ -3,7 +3,7 @@ layout:     post
 title:      "SaaS Tutorial Part 3"
 subtitle:   "Devise and Users"
 date:       2017-02-17 12:00:00
-author:     "Frank Olson"
+author:     "Will Olson"
 header-img: "img/post-bg-03.jpg"
 ---
 
