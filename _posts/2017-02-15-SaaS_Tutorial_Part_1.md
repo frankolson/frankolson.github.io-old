@@ -3,7 +3,7 @@ layout:     post
 title:      "SaaS Tutorial Part 1"
 subtitle:   "Let's get started"
 date:       2017-02-15 22:14:00
-author:     "Frank Olson"
+author:     "Will Olson"
 header-img: "img/post-bg-01.jpg"
 ---
 ## Intro
