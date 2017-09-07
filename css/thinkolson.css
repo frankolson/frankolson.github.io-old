@@ -1,3 +1,7 @@
+.bottom-buffer {
+  margin-bottom: 20px;
+}
+
 .thumbnail img {
   cursor: pointer !important;
 }

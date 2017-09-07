@@ -19,22 +19,23 @@ header-img: "img/about-bg.jpg"
   <div class="col-md-2">
     EDUCATION
   </div>
-  <div class="col-md-7">
-    <b>Bachelor of Science in Electrical Engineering</b><br>
-    University of Nevada, Reno
-  </div>
-  <div class="col-md-3">
-    <span class="small">Aug 2011 - May 2015</span>
-  </div>
-</div>
 
-<div class="row">
-  <br>
-  <div class="col-md-7 col-md-offset-2">
-    <b>Bellarmine College Preparatory</b>
-  </div>
-  <div class="col-md-3">
-    <span class="small">Aug 2007 - May 2011</span>
+  <div class="col-md-10">
+    {% for education in site.data.educations %}
+      <div class="row bottom-buffer">
+        <div class="col-md-8">
+          <b>{{ education.degree }} in {{ education.field_of_study }}</b>
+
+          <br />
+
+          {{ education.institution }}
+        </div>
+
+        <div class="col-md-4 text-right">
+          <span class="small">{{ education.dates }}</span>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 </div>
 
