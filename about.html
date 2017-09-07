@@ -174,30 +174,33 @@ header-img: "img/about-bg.jpg"
   <div class="col-md-2">
     PROJECTS
   </div>
-  <div class="col-md-7">
-    <b>StageCoach Storage Home Page</b><br>
-    <span class="text-muted">
-      <a target="_blank" href="http://stagecoachstoragenv.com/">stagecoachstoragenv.com</a>
-    </span><br>
-  </div>
-  <div class="col-md-3">
-    <span class="small">Dec 2015</span>
+
+  <div class="col-md-10">
+    {% for project in site.data.projects %}
+      <div class="row bottom-buffer">
+        <div class="col-md-8">
+          <b>{{ project.title }}</b><br>
+
+          <a target="_blank" href="{{ project.link }}">
+            {{ project.link }}
+          </a>
+
+          <br />
+
+          <span class="text-muted">
+            {{ project.description }}
+          </span><br>
+        </div>
+
+        <div class="col-md-4 text-right">
+          <span class="small">{{ project.dates }}</span>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 </div>
 
-<div class="row">
-  <br>
-  <div class="col-md-7 col-md-offset-2">
-    <b>3D-Printed Humanoid Robot (InMoov)</b><br>
-    Robotics Research Lab, UNR, NV<br>
-    <span class="text-muted">
-      Acquiring 3D files from the InMoov project site and altered as needed.Assembled the hardware and programmed the Arduino based system compatible with ROS. This entailed virtually modeling the hardware and creating drivers for the different body parts of the robot.
-    </span><br>
-  </div>
-  <div class="col-md-3">
-    <span class="small">Aug 2013 - June 2014</span>
-  </div>
-</div><br>
+<br />
 
 <p class="text-center">
   <a target="_blank" href="https://goo.gl/YDT9ap">Want the PDF version?</a>

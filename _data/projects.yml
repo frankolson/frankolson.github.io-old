@@ -1,0 +1,14 @@
+- dates: Aug 2017 - Present
+  description: Built a social content and discussion web application that allows users to submit content in addition to voting and commenting. Leveraged React to build a dynamic user interface, as well as Redux to manage global application state.
+  link: https://github.com/frankolson/Readable
+  title: Readable
+
+- dates: February 2017 - Present
+  description: Created a simple social media site built with Ruby on Rails. Built to be easy to clone and used as as a social media starter template.
+  link: https://github.com/frankolson/BIC_Hub
+  title: BIC Hub
+
+- dates: Aug 2017 - Present
+  description: Developed a node package for converting between variable naming conventions. This package is especially helpful when you are using a web app stack with both Ruby and Javascript. With Javascript using camel case as its variable naming convention, and Ruby using snake case, it is useful to have a tool to translate between the two.
+  link: https://github.com/frankolson/Ypotryll
+  title: Ypotryll
