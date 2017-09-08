@@ -8,11 +8,13 @@ header-img: "img/about-bg.jpg"
 <h3>Hi, I'm Will.</h3>
 
 <p>
-  I am a Ruby on Rails Full-Stack Developer with a special love for startups.
+  I am a Full-Stack Developer with a special love for startups.
   Want to check out my resume? Well, here you go:
 </p><br><br>
 
-<h3 class="text-center"><u>Resume</u></h3><br>
+<h3 class="text-center"><u>Resume</u></h3>
+
+<br>
 
 <!-- Skills -->
 <div class="row">
@@ -47,7 +49,7 @@ header-img: "img/about-bg.jpg"
     {% for project in site.data.projects %}
       <div class="row bottom-buffer">
         <div class="col-md-8">
-          <b>{{ project.title }}</b> ~ 
+          <b>{{ project.title }}</b> ~
 
           <a class="small github" target="_blank" href="{{ project.github }}">
             GitHub
@@ -57,7 +59,7 @@ header-img: "img/about-bg.jpg"
 
           <span class="text-muted">
             {{ project.description }}
-          </span><br>
+          </span>
         </div>
 
         <div class="col-md-4 dates">
@@ -80,12 +82,19 @@ header-img: "img/about-bg.jpg"
     {% for experience in site.data.experiences %}
       <div class="row bottom-buffer">
         <div class="col-md-8">
-          <b>{{ experience.position }}</b><br>
-          {{ experience.company }}<br>
+          <b>{{ experience.position }}</b>
+
+          <br />
+
+          {{ experience.company }}
+
+          <br />
+
           <span class="text-muted">
             {{ experience.description }}
-          </span><br>
+          </span>
         </div>
+
         <div class="col-md-4 dates">
           <span class="small">{{ experience.dates }}</span>
         </div>
