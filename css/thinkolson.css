@@ -2,6 +2,10 @@
   margin-bottom: 20px;
 }
 
+.dates {
+  text-align: left;
+}
+
 .thumbnail img {
   cursor: pointer !important;
 }
@@ -9,5 +13,11 @@
 @media (max-width: 767px) {
   .bottom-buffer-xs {
     margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .dates {
+    text-align: right;
   }
 }
