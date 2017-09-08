@@ -7,16 +7,13 @@ description: "A cool place for my thoughts and projects"
   <h1 class="page-header text-center">Portfolio</h1>
 </div>
 
-<div class="col-lg-4 col-sm-6">
-  <a class="thumbnail" target="_bank" href="http://stagecoachstoragenv.com/">
-    <img class="img-responsive" src="img/SCS.jpg" alt="">
-  </a>
-</div>
-<div class="col-lg-4 col-sm-6">
-  <a class="thumbnail" target="_bank" href="http://bichub.herokuapp.com/">
-    <img class="img-responsive" src="img/BICHub.jpg" alt="">
-  </a>
-</div>
+{% for project in site.data.portfolio %}
+  <div class="col-lg-4 col-sm-6">
+    <a class="thumbnail" target="_bank" href="{{ project.link }}">
+      <img class="img-responsive" src="{{ project.image }}" alt="{{ project.alt }}">
+    </a>
+  </div>
+{% endfor %}
 
 <div class="col-sm-12 text-center">
   &hellip;
