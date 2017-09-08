@@ -14,161 +14,6 @@ header-img: "img/about-bg.jpg"
 
 <h3 class="text-center"><u>Resume</u></h3><br>
 
-<!-- EDUCATION -->
-<div class="row">
-  <div class="col-md-2">
-    EDUCATION
-  </div>
-
-  <div class="col-md-10">
-    {% for education in site.data.educations %}
-      <div class="row bottom-buffer">
-        <div class="col-md-8">
-          <b>{{ education.degree }} in {{ education.field_of_study }}</b>
-
-          <br />
-
-          {{ education.institution }}
-        </div>
-
-        <div class="col-md-4 text-right">
-          <span class="small">{{ education.dates }}</span>
-        </div>
-      </div>
-    {% endfor %}
-  </div>
-</div>
-
-<hr>
-
-<!-- EXPERIENCE -->
-<div class="row">
-  <div class="col-md-2">
-    EXPERIENCE
-  </div>
-  <div class="col-md-7">
-    <b>CTO & Co-Founder</b><br>
-    Dringo, Inc.<br>
-    <span class="text-muted">
-      Ruby on Rails development, AWS and Heroku production servers, Agile web practices, teaching and training interns, Git and Github.
-    </span><br>
-  </div>
-  <div class="col-md-3">
-    <span class="small">June 2015 - Present</span>
-  </div>
-</div>
-
-<div class="row">
-  <br>
-  <div class="col-md-7 col-md-offset-2">
-    <b>Full-Stack Web Developer</b><br>
-    Wilderness Travel<br>
-    <span class="text-muted">
-      Help develop an extensive CRM and Sales funnel system and manage internally hosted servers and databases. Technologies I work with are Ruby on Rails, React, Webpack, Yarn, and Linux/Unix. (<a href="http://www.wildernesstravel.com">wildernesstravel.com/</a>)
-    </span><br>
-  </div>
-  <div class="col-md-3">
-    <span class="small">February 2017 - Present</span>
-  </div>
-</div>
-
-<div class="row">
-  <br>
-  <div class="col-md-7 col-md-offset-2">
-    <b>Contract Web Developer</b><br>
-    Opera Event<br>
-    <span class="text-muted">
-      Aid in developing a Ruby on Rails web-app API, separate responsive front-end, and Ruby IRC chat clients for the Twitch platform (<a href="http://www.operaevent.co">operaevent.co/</a>).
-    </span><br>
-  </div>
-  <div class="col-md-3">
-    <span class="small">July 2016 - Nov 2016</span>
-  </div>
-</div>
-
-<div class="row">
-  <br>
-  <div class="col-md-7 col-md-offset-2">
-    <b>COO & Co-Founder</b><br>
-    Tech-Mex, Inc.<br>
-    <span class="text-muted">
-      Responsible for training interns, searching for/reaching out to potential clients, recruiting, strategic business development, website development.
-    </span><br>
-  </div>
-  <div class="col-md-3">
-    <span class="small">June 2015 - Jan 2016</span>
-  </div>
-</div>
-
-<div class="row">
-  <br>
-  <div class="col-md-7 col-md-offset-2">
-    <b>Undergraduate Researcher</b><br>
-    Robotics Research Lab, UNR, NV<br>
-    <span class="text-muted">
-      ROS (Robot Operating System) design, 3D file design, Arduino board proficiency, Python and C++ skills, Git collaboration, and Linux proficiency.
-    </span><br>
-  </div>
-  <div class="col-md-3">
-    <span class="small">Sep 2013 - May 2015</span>
-  </div>
-</div>
-
-<div class="row">
-  <br>
-  <div class="col-md-7 col-md-offset-2">
-    <b>IT Technician</b><br>
-    Teaching and Learning Technologies, UNR, NV<br>
-    <span class="text-muted">
-      Troubleshooted malfunctioning computers and programs on campus. Worked consistently on networking of computers on campus. Aided professors with programs installed on their university computers. Completed, with a team of students, an ASP.NET MVC app utilizing a SQL database for the IT department website.
-    </span><br>
-  </div>
-  <div class="col-md-3">
-    <span class="small">Aug 2012 - May 2015</span>
-  </div>
-</div>
-
-<div class="row">
-  <br>
-  <div class="col-md-7 col-md-offset-2">
-    <b>Contractor</b><br>
-    Gravitech Electronic Experimental Solutions<br>
-    <span class="text-muted">
-      Cleaned and prepared micro-controller boards for assembly. Assembled boards and readied them for distribution.
-    </span><br>
-  </div>
-  <div class="col-md-3">
-    <span class="small">June 2013 - Aug 2013</span>
-  </div>
-</div>
-
-<hr>
-
-<!-- PROFESSIONAL AFFILIATIONS -->
-<div class="row">
-  <div class="col-md-2">
-    PROFESSIONAL AFFILIATIONS
-  </div>
-  <div class="col-md-10">
-    <b>Theta Tau Professional Engineering Fraternity</b><br>
-    <span class="text-muted">
-      Pledge Education Committee Member, Pledge Education Chair, Education Resources Chair
-    </span><br>
-  </div>
-</div>
-
-<div class="row">
-  <br>
-  <div class="col-md-10 col-md-offset-2">
-    <b>University of Nevada, Reno Engineering Differential Fees Committee</b><br>
-    <span class="text-muted">
-      Undergraduate Representative for the Electrical Engineering Department
-    </span><br>
-  </div>
-</div>
-
-<hr>
-
 <!-- PROJECTS -->
 <div class="row">
   <div class="col-md-2">
@@ -194,6 +39,59 @@ header-img: "img/about-bg.jpg"
 
         <div class="col-md-4 text-right">
           <span class="small">{{ project.dates }}</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<hr>
+
+<!-- EXPERIENCE -->
+<div class="row">
+  <div class="col-md-2">
+    EXPERIENCE
+  </div>
+
+  <div class="col-md-10">
+    {% for experience in site.data.experiences %}
+      <div class="row bottom-buffer">
+        <div class="col-md-8">
+          <b>{{ experience.position }}</b><br>
+          {{ experience.company }}<br>
+          <span class="text-muted">
+            {{ experience.description }}
+          </span><br>
+        </div>
+        <div class="col-md-4 text-right">
+          <span class="small">{{ experience.dates }}</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<hr>
+
+<!-- EDUCATION -->
+<div class="row">
+  <div class="col-md-2">
+    EDUCATION
+  </div>
+
+  <div class="col-md-10">
+    {% for education in site.data.educations %}
+      <div class="row bottom-buffer">
+        <div class="col-md-8">
+          <b>{{ education.degree }} in {{ education.field_of_study }}</b>
+
+          <br />
+
+          {{ education.institution }}
+        </div>
+
+        <div class="col-md-4 text-right">
+          <span class="small">{{ education.dates }}</span>
         </div>
       </div>
     {% endfor %}

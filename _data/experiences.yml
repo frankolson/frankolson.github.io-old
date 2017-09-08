@@ -1,0 +1,24 @@
+- company: Wilderness Travel
+  dates: Feb 2017 - Present
+  description: "Build UI interfaces for their internal Rails CRM system. Implemented 3 new front-end technologies: React, Redux, Webpack."
+  position: Full Stack Developer
+
+- company: Dringo, Inc.
+  dates: June 2015 - Present
+  description: Build and coordinate the deployment of our Rails SAAS web application. Manage a development team of 3 developers.
+  position: CTO
+
+- company: Opera Event
+  dates: June 2016 - November 2016
+  description: Collaborated with both sides of the decoupled Rails/Javascript web application. Developed the first iteration of their Rails API IRC chatbot.
+  position: Contract Web Developer
+
+- company: Robotics Research Lab, UNR
+  dates: Aug 2013 - May 2015
+  description: Assembled, maintained, and upgraded robotic research equipment. Investigated two potential technologies to aid in robotic therapy for autistic patients.
+  position: Research Assistant
+
+- company: Teaching and Learning Technologies, UNR
+  dates: Aug 2012 - May 2015
+  description: Troubleshooted and networked university Windows computers. Designed an inventory ASP.NET application with a team of 3 students.
+  position: IT Technician
