@@ -1,0 +1,11 @@
+- name: Programming Languages
+  skills: ["CSS", "C++", "HTML", "Javascript", "Ruby"]
+
+- name: Frameworks/Libraries
+  skills: ["Bootstrap", "React", "Redux", "Ruby on Rails"]
+
+- name: Databases
+  skills: ["MongoDB", "MySQL", "PostgreSQL"]
+
+- name: Other
+  skills: ["AWS", "Git and Github", "Heroku", "Linux", "Netlify", "OS X"]
