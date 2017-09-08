@@ -12,7 +12,7 @@
 
 - alt: Node package manager (npm) logo
   description: Developed a node package for converting between variable naming conventions. This package is especially helpful when you are using a web app stack with both Ruby and Javascript. With Javascript using camel case as its variable naming convention, and Ruby using snake case, it is useful to have a tool to translate between the two.
-  image: img/npmsmall.png
+  image: img/npmSmall.png
   link: https://github.com/frankolson/Ypotryll
   title: Ypotryll
 
