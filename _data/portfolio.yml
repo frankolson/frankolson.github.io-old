@@ -1,7 +1,7 @@
-- alt: Screen shot of the Stagecoach Storage website
-  image: img/SCS.jpg
-  link: http://stagecoachstoragenv.com/
-  title: Stagecoach Storage
+- alt: Picture of a notebook and pen next to a laptop
+  image: img/readable.jpg
+  link: https://github.com/frankolson/Ypotryll
+  title: Readable
 
 - alt: Screen shot of the BIC Hub website homepage
   image: img/BICHub.jpg
@@ -13,7 +13,7 @@
   link: https://github.com/frankolson/Ypotryll
   title: Ypotryll
 
-- alt: Picture of a notebook and pen next to a laptop
-  image: img/readable.jpg
-  link: https://github.com/frankolson/Ypotryll
-  title: Readable
+- alt: Screen shot of the Stagecoach Storage website
+  image: img/SCS.jpg
+  link: http://stagecoachstoragenv.com/
+  title: Stagecoach Storage
