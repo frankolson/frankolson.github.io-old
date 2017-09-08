@@ -5,3 +5,9 @@
 .thumbnail img {
   cursor: pointer !important;
 }
+
+@media (max-width: 767px) {
+  .bottom-buffer-xs {
+    margin-bottom: 20px;
+  }
+}

@@ -14,9 +14,32 @@ header-img: "img/about-bg.jpg"
 
 <h3 class="text-center"><u>Resume</u></h3><br>
 
+<!-- Skills -->
+<div class="row">
+  <div class="col-md-2 bottom-buffer">
+    SKILLS
+  </div>
+
+  <div class="col-md-10">
+    {% for group in site.data.skills %}
+      <div class="row bottom-buffer-xs">
+        <div class="col-sm-5">
+          <b>{{ group.name }}:</b>
+        </div>
+
+        <div class="col-sm-7">
+          {{ group.skills | join: ', ' }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<hr>
+
 <!-- PROJECTS -->
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-2 bottom-buffer">
     PROJECTS
   </div>
 
@@ -49,7 +72,7 @@ header-img: "img/about-bg.jpg"
 
 <!-- EXPERIENCE -->
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-2 bottom-buffer">
     EXPERIENCE
   </div>
 
@@ -75,7 +98,7 @@ header-img: "img/about-bg.jpg"
 
 <!-- EDUCATION -->
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-2 bottom-buffer">
     EDUCATION
   </div>
 
