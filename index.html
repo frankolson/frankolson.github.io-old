@@ -9,6 +9,10 @@ description: "A cool place for my thoughts and projects"
 
 {% for project in site.data.portfolio %}
   <div class="col-lg-4 col-sm-6">
+    <div class="text-center">
+      <h4>{{ project.title }}</h4>
+    </div>
+
     <a class="thumbnail" target="_bank" href="{{ project.link }}">
       <img class="img-responsive" src="{{ project.image }}" alt="{{ project.alt }}">
     </a>
