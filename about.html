@@ -91,7 +91,11 @@ header-img: "img/about-bg.jpg"
           <br />
 
           <span class="text-muted">
-            {{ experience.description }}
+            <ul>
+              {% for bullet in experience.description %}
+                <li>{{ bullet }}</li>
+              {% endfor %}
+            </ul>
           </span>
         </div>
 
