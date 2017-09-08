@@ -29,8 +29,17 @@ header-img: "img/about-bg.jpg"
           <b>{{ group.name }}:</b>
         </div>
 
-        <div class="col-sm-7">
-          {{ group.skills | join: ', ' }}
+        <div class="col-sm-7 skills">
+          {% assign all = group.skills %}
+          {% assign last = group.skills.last %}
+
+          {% for skill in all %}
+            {% unless skill == last %}
+              <span class="skill">{{ skill }}, </span>
+            {% endunless %}
+          {% endfor %}
+
+          <span class="skill">{{ last }}</span>
         </div>
       </div>
     {% endfor %}
