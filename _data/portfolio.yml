@@ -1,24 +1,29 @@
 - alt: Picture of a notebook and pen next to a laptop
+  description: Built a social content and discussion web application that allows users to submit content in addition to voting and commenting. Leveraged React to build a dynamic user interface, as well as Redux to manage global application state.
   image: img/readable.jpg
   link: https://github.com/frankolson/Ypotryll
   title: Readable
 
 - alt: Screen shot of the BIC Hub website homepage
+  description: Created a simple social media site built with Ruby on Rails. Built to be easy to clone and used as as a social media starter template.
   image: img/BICHub.jpg
   link: https://github.com/frankolson/BIC_Hub
   title: BIC Hub
 
 - alt: Node package manager (npm) logo
+  description: Developed a node package for converting between variable naming conventions. This package is especially helpful when you are using a web app stack with both Ruby and Javascript. With Javascript using camel case as its variable naming convention, and Ruby using snake case, it is useful to have a tool to translate between the two.
   image: img/npmsmall.png
   link: https://github.com/frankolson/Ypotryll
   title: Ypotryll
 
-- alt: Node package manager (npm) logo
+- alt: Artist's rendition of a red ruby
+  description: Developed a Ruby gem to interface with AppCast’s CareerBuilder REST API. Aided Dringo, one of my startups, in effectively connecting their job matching functionality.
   image: img/rubygem.png
   link: https://github.com/dringo-repo/careerbuilder
   title: AppCast CareerBuilder Gem
 
 - alt: Screen shot of the Stagecoach Storage website
+  description: Build a simple responsive website for a family owned storage company in Reno, NV. Composed of basic HTML, CSS and Javascript.
   image: img/SCS.jpg
   link: http://stagecoachstoragenv.com/
   title: Stagecoach Storage
