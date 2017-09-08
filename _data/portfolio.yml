@@ -13,6 +13,11 @@
   link: https://github.com/frankolson/Ypotryll
   title: Ypotryll
 
+- alt: Node package manager (npm) logo
+  image: img/rubygem.png
+  link: https://github.com/dringo-repo/careerbuilder
+  title: AppCast CareerBuilder Gem
+
 - alt: Screen shot of the Stagecoach Storage website
   image: img/SCS.jpg
   link: http://stagecoachstoragenv.com/
