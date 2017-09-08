@@ -1,5 +1,5 @@
 .bottom-buffer {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .dates {
@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 767px) {
-  .bottom-buffer-xs {
+  .skills-bottom-buffer {
     margin-bottom: 20px;
   }
 }
