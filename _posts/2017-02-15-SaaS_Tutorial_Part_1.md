@@ -178,7 +178,7 @@ git commit -m "setup testing suite"
 
 ### Add the Style {#section-4}
 
-Its time to add some style, specifically with Twitter Bootstrap and SimpleForm. Go ahead and add then gems to the Gemfile ...
+Its time to add some style, specifically with Twitter Bootstrap and SimpleForm. Go ahead and add these gems to the Gemfile ...
 
 ```ruby
 # Gemfile
