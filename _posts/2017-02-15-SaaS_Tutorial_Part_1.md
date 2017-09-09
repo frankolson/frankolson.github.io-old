@@ -124,7 +124,7 @@ to this:
 
 ### Configuring the RSpec Suite {#section-3}
 
-Now, that the gems have been added to the Gemfile, the need to be installed and configured. Here we run bundle install then generate the default configuration files for both RSpec and Guard.
+Now, that the gems have been added to the Gemfile, they need to be installed and configured. Here we run bundle install, then generate the default configuration files for both RSpec and Guard.
 
 ```
 bundle install
