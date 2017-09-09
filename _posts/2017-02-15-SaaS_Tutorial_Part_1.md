@@ -40,22 +40,22 @@ In this first post we are going to focus on setting up our rails app with a grea
 To start we are going to build our app using PostgreSQL as our database using `--database=postgresql`. This is really important for two reasons. First, we are going to host our site on Heroku for easy deployment which requires that we use PostgreSQL. Second, and most important, we are going to utilize schemas to implement multi-tenancy which is only found in PostgreSQL.
 
 Also, we are going to use the `-T` option to have Rails ignore the default unit test generator. For this app we will be using RSpec to handle the unit (or spec) tests.
-~~~
+```
 rails new CoffeeTracking --database=postgresql -T
 cd CoffeeTracking/
-~~~
+```
 
 Also, because we're awesome developers, we are going to Git to track our development with version control.
-~~~
+```
 git init
 git add . && git commit -m "init commit"
-~~~
+```
 
 ### Adding the First Gems {#section-2}
 
 Next, we are going to add all the gems for our testing suite. RSpec for unit tests, Guard for continuous testing, FactoryGirl for model factories, and should-matchers to make our lives easier. Also, if you notice I have removed all the unnecessary comments as well as the Turbolinks gem. We won't be needing it for this tutorial.
 
-~~~ruby
+```ruby
 # Gemfile
 source 'https://rubygems.org'
 
@@ -97,44 +97,44 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-~~~
+```
 
 Because we removed the Turbolinks gem, we also need to remove references to it in the asset pipeline ...
 
-~~~javascript
+```javascript
 /* # app/assets/javascripts/application.js */
 /* get rid of this */
 //= require turbolinks
-~~~
+```
 
 ... as well as the layout view. Change this:
 
-~~~erb
+```erb
 <!-- # app/views/layouts/application.html.erb -->
 
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-~~~
+```
 
 to this:
-~~~erb
+```erb
 <%= stylesheet_link_tag    'application' %>
 <%= javascript_include_tag 'application' %>
-~~~
+```
 
 ### Configuring the RSpec Suite {#section-3}
 
 Now, that the gems have been added to the Gemfile, the need to be installed and configured. Here we run bundle install then generate the default configuration files for both RSpec and Guard.
 
-~~~
+```
 bundle install
 rails g rspec:install
 bundle exec guard init
-~~~
+```
 
 Once those files have been generated we now need to edit the Rails helper to include Rspec, Capybara, DatabaseCleaner, and FactoryGirl. I usually use a `rails_helper.rb` file from an old project as a starter.
 
-~~~ruby
+```ruby
 # spec/rails_helper.rb
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -167,34 +167,34 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
-~~~
+```
 
 Time to create a save point with Git!
 
-~~~
+```
 git add .
 git commit -m "setup testing suite"
-~~~
+```
 
 ### Add the Style {#section-4}
 
 Its time to add some style, specifically with Twitter Bootstrap and SimpleForm. Go ahead and add then gems to the Gemfile ...
 
-~~~ruby
+```ruby
 # Gemfile
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'simple_form'
-~~~
+```
 
 ... and then generate the initializer files needed for SimpleForm.
 
-~~~
+```
 rails g simple_form:install --bootstrap
-~~~
+```
 
 Right now SimpleForm does not have its Bootstrap generator up to date with Twitter Bootstrap 4. So, in order to take advantage of all the new changes in Bootstrap 4, replace the contents of `config/initializers/simple_form_bootstrap.rb` with the following:
 
-~~~ruby
+```ruby
 # config/initializers/simple_form_bootstrap.rb
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
@@ -324,33 +324,33 @@ SimpleForm.setup do |config|
     time: :multi_select
   }
 end
-~~~
+```
 
 Then rename `app/assets/stylesheets/application.css` to `app/assets/stylesheets/application.scss` (focus on the file extension), delete all its content, and insert the following to include bootstrap assets.
 
-~~~sass
+```sass
 /* # app/assets/stylesheets/application.scss */
 // vendor assets
 @import "bootstrap";
 
 // project assets
-~~~
+```
 
 In `app/assets/javascripts/application.js` add `bootstrap-sprockets` to the list of requirements after `jquery_ujs`.
 
-~~~javascript
+```javascript
 /* # app/assets/javascripts/application.js */
 
 //= require jquery_ujs
 //= require bootstrap-sprockets
-~~~
+```
 
 And finally, create another save point.
 
-~~~
+```
 git add .
 git commit -m "install bootstrap and simpleform"
-~~~
+```
 
 ---
 
