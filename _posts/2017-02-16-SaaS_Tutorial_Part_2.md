@@ -7,7 +7,7 @@ author:     "Will Olson"
 header-img: "img/post-bg-02.jpg"
 ---
 ## Intro
-With this second post in the series we are going to create the Accounts model, controller, views, routes, and spec tests. Throughout this series I am going to be doing my best to follow the practices of Test Driven Development (TDD). This is a great way to keep your code reliable and if you are interested in learning more checkout [this great tutorial series](https://everydayrails.com/2012/03/12/testing-series-intro.html).
+With this second post in the series, we are going to create the Accounts model, controller, views, routes, and spec tests. Throughout this series, I am going to be doing my best to follow the practices of Test Driven Development (TDD). This is a great way to keep your code reliable and if you are interested in learning more check out [this great tutorial series](https://everydayrails.com/2012/03/12/testing-series-intro.html).
 
 Again, if you want to look at the source code for this post [look here!](https://github.com/frankolson/CoffeeTracking/tree/part_2)
 
