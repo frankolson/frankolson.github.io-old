@@ -45,7 +45,7 @@ rails new CoffeeTracking --database=postgresql -T
 cd CoffeeTracking/
 ```
 
-Also, because we're awesome developers, we are going to Git to track our development with version control.
+Also, because we're awesome developers, we are going to use Git to track our development with version control.
 ```
 git init
 git add . && git commit -m "init commit"
