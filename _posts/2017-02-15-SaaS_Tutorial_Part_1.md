@@ -6,7 +6,9 @@ date:       2017-02-15 22:14:00
 author:     "Will Olson"
 header-img: "img/post-bg-01.jpg"
 ---
+
 ## Intro
+
 This is the first article of my series on how to build a Software as a Service (SaaS) web app using Ruby on Rails. In this series we are going to be setting up a multi-tenant web app to track employee satisfaction at individual stores in a large coffee franchise. Employees will be able to sign in and give reviews and store managers will be able to track the anonymized satisfaction of their employees.
 
 Their are a few assumptions I am going to make about you, the reader / up-and-coming developer, and your setup.
@@ -23,6 +25,7 @@ In this first post we are going to focus on setting up our rails app with a grea
 ---
 
 ## Outline
+
 1. [Building the App](#section-1)
 2. [Adding the First Gems](#section-2)
 3. [Configuring the RSpec Suite](#section-3)
@@ -33,11 +36,12 @@ In this first post we are going to focus on setting up our rails app with a grea
 ## The Good Stuff
 
 ### Building the App {#section-1}
+
 To start we are going to build our app using PostgreSQL as our database using `--database=postgresql`. This is really important for two reasons. First, we are going to host our site on Heroku for easy deployment which requires that we use PostgreSQL. Second, and most important, we are going to utilize schemas to implement multi-tenancy which is only found in PostgreSQL.
 
 Also, we are going to use the `-T` option to have Rails ignore the default unit test generator. For this app we will be using RSpec to handle the unit (or spec) tests.
 ~~~
-rails new CoffeeTracking --database=postgresql --T
+rails new CoffeeTracking --database=postgresql -T
 cd CoffeeTracking/
 ~~~
 
