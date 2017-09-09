@@ -53,7 +53,7 @@ git add . && git commit -m "init commit"
 
 ### Adding the First Gems {#section-2}
 
-Next, we are going to add all the gems for our testing suite. RSpec for unit tests, Guard for continuous testing, FactoryGirl for model factories, and should-matchers to make our lives easier. Also, if you notice I have removed all the unnecessary comments as well as the Turbolinks gem. We won't be needing it for this tutorial.
+Next, we are going to add all the gems for our testing suite. RSpec for unit tests, Guard for continuous testing, FactoryGirl for model factories, and shoulda-matchers to make our lives easier. Also, if you notice I have removed all the unnecessary comments as well as the Turbolinks gem. We won't be needing it for this tutorial.
 
 ```ruby
 # Gemfile
